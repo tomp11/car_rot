@@ -1,0 +1,40 @@
+dataset_path: "/ML/datasets/car-rot"
+
+random_seed: 42
+model:
+  num_classes: 8
+  image_size: 320
+
+epoch: 100
+train:
+  accumulation_batch_size: 32
+  batch_size: 16
+  transform:
+    HorizontalFlip: False
+    VerticalFlip: False
+    Contrast: True
+    ShiftScaleRotate: True
+
+val:
+  val_size: 0.2
+  batch_size: 16
+
+
+optimizer:
+  name: "SGD"
+  lr: 0.001
+  momentum: 0.9
+  weight_decaty: 0.005
+
+
+step:
+  log: 100
+  save: 200
+  tensorbaord_img: 100
+
+no_val: True
+no_result: False
+no_batch_metrics: False
+
+fp16: False
+device: "cuda" # "cpu"
